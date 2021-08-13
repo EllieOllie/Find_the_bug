@@ -21,14 +21,13 @@ body,
 .wrap {
   width: 88%;
   height: 77.5%;
-  margin: 21px 0 0 30px;
+  margin: 28px 0 0 34px;
 }
 
 .text {
   width: 66%;
   text-align: start;
-  margin-bottom: 57px;
-  border: red dashed 3px;
+  margin-bottom: 62px;
 }
 
 .title,
@@ -55,8 +54,6 @@ body,
 
 .main-menu {
   width: 352px;
-  /* height: 432px; */
-  border: red dashed 3px;
 }
 
 .level {
@@ -87,8 +84,7 @@ li:last-child {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 40.5%;
-  border: red dashed 3px; 
+  width: 41%;
 }
 
 .main-cards__lower,
@@ -96,7 +92,6 @@ li:last-child {
   width: 44%;
   height: 61.5%;
 }
-
 
 .main-cards__lower {
   background: no-repeat url(img/card_face_down.svg);
