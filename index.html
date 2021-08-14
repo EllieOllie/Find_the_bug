@@ -18,18 +18,35 @@
         <p class="description">Выберите сложность и игра начнется. Чем выше уровень - тем больше будет выборка карт.</p>
       </div>      
       <div class="main">
-        <div class="main-menu">
+        <div class="menu">
           <ul class="level">
-            <li>Простой</li>
-            <li>Средний</li>
-            <li>Сложный</li>
+            <li>
+              <a href="#" class=" level__btn level__btn_active" data-level="easy">Простой</a>
+            </li>
+            <li>
+              <a href="#" class="level__btn" data-level="middle">Средний</a>
+            </li>
+            <li>
+              <a href="#" class="level__btn" data-level="hard">Сложный</a>
+            </li>
           </ul>
           <button class="button">Начать игру</button>
         </div>
-        <div class="main-cards">
-          <div class="main-cards__lower"></div>
-          <div class="main-cards__upper"></div>       
-        </div>
+        <div class="card">
+          <div class="card__lower">
+            <img src="img/card_face_down.svg" alt="card_face_down">
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="card__front-flip">
+                <img src="img/card_face_down.svg" alt="card_face_down">
+              </div>
+              <div class="card__back-flip">
+                <img src="img/card_with_BUG.svg" alt="card_with_BUG">
+              </div>
+            </div>
+          </div>                    
+        </div>        
       </div>      
     </div>
   </section>
