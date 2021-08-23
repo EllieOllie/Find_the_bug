@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <meta name="description" content="GAME 'Find the BUG' from EllieOllie"/> -->
-  <!-- <meta name="keywords" content="game, browser game, browser application, web-application, find the bug, найди баг, веб-игра, веб-приложение"/> -->
+  <meta name="description" content="GAME 'Find the BUG' from EllieOllie"/>
+  <meta name="keywords" content="game, browser game, browser application, web-application, find the bug, найди баг, веб-игра, веб-приложение"/>
   <title>Find the BUG</title>
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">  
 </head>
 <body>
-  <section class="start-page">
+  <section class="start-page" id="start-page">
     <div class="wrap">
       <div class="text">
         <h1 class="title">Выберите уровень сложности:</h1>
@@ -19,22 +19,25 @@
       </div>      
       <div class="main">
         <div class="menu">
-          <ul class="level">
+          <ul class="level" id="level-list">
             <li>
-              <a href="#" class=" level__btn level__btn_active" data-level="easy">Простой</a>
+              <a href="#" class=" level__btn" data-level="3">Простой</a>
             </li>
             <li>
-              <a href="#" class="level__btn" data-level="middle">Средний</a>
+              <a href="#" class="level__btn" data-level="6">Средний</a>
             </li>
             <li>
-              <a href="#" class="level__btn" data-level="hard">Сложный</a>
+              <a href="#" class="level__btn" data-level="10">Сложный</a>
             </li>
           </ul>
-          <button class="button">Начать игру</button>
+          <button id="start-game" class="button">Начать игру</button>
         </div>
         <div class="card">
-          <div class="card__lower">
-            <img src="img/card_face_down.svg" alt="card_face_down">
+          <div class="card-lower">
+            <img id="cardFaceDown" src="img/card_face_down.svg" alt="card_face_down">
+          </div>
+          <div class="card-back">
+            <img src="img/card_Game_over.svg" alt="card_Game_over">
           </div>
           <div class="flip-card">
             <div class="flip-card-inner">
