@@ -13,7 +13,8 @@ body {
   background-size: cover;
 }
 
-.start-page {
+.start-page,
+.game-page {
   width: 100vw;
   height: 100vh;
   display: flex;

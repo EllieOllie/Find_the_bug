@@ -1,75 +1,47 @@
 const menu = document.querySelector('#start-page');
 const levelList = document.querySelector('#level-list');
-const levelBtn = document.querySelectorAll('.level__btn').value;
 const startBtn = document.querySelector('.button');
-const mainTable = document.querySelector('.main');
-const cardFaceDown = document.querySelector('#cardFaceDown');
-
-console.log(levelBtn);
-
-// let activeLevelIndex = 0 // переменная, которая позволяет следить за тем, какой уровень сейчас активный
+const game = document.querySelector('#game-page');
 
 
-// const LevelSimple = levelBtn[0].dataset.level;
-// console.log(LevelSimple);
+levelList.addEventListener('click', event => {
+  if (event.target.classList.contains('level__btn')) {
+    let level = event.target.getAttribute('data-level');
+    event.target.classList.add('active');
 
-// const LevelMiddle = levelBtn[1].dataset.level;
-// console.log(LevelMiddle);
+    let gamePage = document.body.children[1];
+    let newCard = document.createElement('div');
+    let addedCard = gamePage.firstElementChild;
 
-// const LevelHard = levelBtn[2].dataset.level;
-// console.log(LevelHard);
+    function addCards() {   
+      gamePage.appendChild(newCard);
+      addedCard.style.background = 'space url(img/card_face_down.svg)';
+    };
 
-
-levelList.addEventListener('click', event => event.target.classList.add('active'));
-
-
-
-// const LevelListBtn = levelList.children;
-// console.log(LevelListBtn); // получили массив из уровней
-
-// const LevelListBtn1 = levelList.firstElementChild;
-// console.log(LevelListBtn1); // получили первый уровень
-
-// const LevelListBtn2 = levelList.children[1];
-// console.log(LevelListBtn2); // получили второй уровень
-
-// const LevelListBtn3 = levelList.lastElementChild;
-// console.log(LevelListBtn3); // получили третий уровень
-
-
+    switch (level) {
+      case '3':
+        addCards();
+        addedCard.style.width = '702px';
+        addedCard.style.height = '341px';
+        break;
+      case '6':
+        addCards();
+        addedCard.style.width = '702px';
+        addedCard.style.height = '706px';
+        break;
+      case '10':
+        addCards();
+        addedCard.style.width = '1186px';
+        addedCard.style.height = '706px';
+        break;
+      default:
+        console.log('Опа!')
+    }
+  }  
+})
 
 const clickStartGame = () => {
   document.body.removeChild(menu);
-  choiceLevel();
-  // if (levelBtn.classList = 'active') {
-  //   document.body.appendChild(cardFaceDown);
-  // } else {
-  //   console.log('Опа!')
-  // }
 };
 
-const choiceLevel = () => {
-  let level = levelBtn.classList.contains('active');
-  // let level = levelBtn.dataset.level;
-  switch (level) {
-    case '3':
-      document.body.appendChild(cardFaceDown);
-      break;
-    case '6':
-      document.body.appendChild(cardFaceDown);
-      break;
-    case '10':
-      document.body.appendChild(cardFaceDown);
-      break;
-    default:
-      console.log('Опа!')
-  }
-}
-
-
 startBtn.addEventListener('click', clickStartGame);
-
-
-
-
-
