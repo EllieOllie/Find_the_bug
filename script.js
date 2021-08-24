@@ -2,7 +2,7 @@ const menu = document.querySelector('#start-page');
 const levelList = document.querySelector('#level-list');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
-
+const card = document.querySelectorAll('#cards');
 
 levelList.addEventListener('click', event => {
   if (event.target.classList.contains('level__btn')) {
@@ -40,8 +40,14 @@ levelList.addEventListener('click', event => {
   }  
 })
 
-const clickStartGame = () => {
+const startGame = () => {
   document.body.removeChild(menu);
 };
 
-startBtn.addEventListener('click', clickStartGame);
+startBtn.addEventListener('click', startGame);
+
+const openCard = () => {
+  
+}
+
+card.addEventListener('click', )
