@@ -8,7 +8,7 @@ body,
 }
 
 body {
-  background: url(img/background.png);
+  background: url(img/Background.jpg);
   background-color: #01977c;
   background-size: cover;
 }
@@ -22,6 +22,10 @@ body {
   align-items: center;
 }
 
+.game-page {
+  display: none;
+}
+
 .wrap {
   width: 88%;
   height: 77.5%;
@@ -30,7 +34,7 @@ body {
 
 .text {
   text-align: start;
-  margin-bottom: 6vh;
+  margin-bottom: 5.9vh;
 }
 
 .title,
@@ -51,7 +55,6 @@ a,
 
 .main {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   height: 29.8vw;
 }
@@ -60,19 +63,20 @@ a,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 }
 
 .level {
   font: bold 3.45vw/3.85vw roboto, arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(-9%);
+  transform: translateX(-10px);
+}
+
+.lvl {
+  list-style-type: none;
+  padding-bottom: 1.9vw;
 }
 
 .level__btn {
   text-decoration: none;
-  padding-bottom: 1.9vw;
 }
 
 .level__btn::before {
