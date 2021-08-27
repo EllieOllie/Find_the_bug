@@ -35,6 +35,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
+      game.firstElementChild.style.gridTemplateColumns ='243px 243px 243px 243px 221px';
       break;
     default:
       console.log('Опа!');
@@ -52,8 +53,8 @@ function dealCards(cards) {
   for (let card = 1; card <= cards; card++) {
     let img = document.createElement('img');
     deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
-    let imgOfCards = deckOfCards.firstElementChild;
-    imgOfCards.classList.add('cardImg');
+    // let imgOfCards = deckOfCards.firstElementChild;
+    // imgOfCards.classList.add('cardImg');
   }
 }
 
