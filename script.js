@@ -7,7 +7,6 @@ const game = document.querySelector('#game-page');
 let deck = document.querySelector('.deck');
 let card = document.querySelectorAll('.cardImg');
 
-
 // выбираем уровень, навешиваем класс active на выбранный уровень
 function selectLevel(event) {
     if (event.target.classList.contains('level__btn')) {
@@ -32,15 +31,12 @@ function getSelectedLevel() {
 
   switch (lvl) {
     case '3':
-      console.log('Опа 3 карты!');
       dealCards(3);
       break;
     case '6':
-      console.log('Опа 6 карт!');
       dealCards(6);
       break;
     case '10':
-      console.log('Опа 10 карт!');
       dealCards(10);
       break;
     default:
