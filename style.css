@@ -208,7 +208,7 @@ img {
     transform: translateY(0%);
   }
     25%, 50%, 75% {
-    transform: translateY(-10%);
+    transform: translateY(-15%);
   }
 	0%, 100% {
 		transform: rotate(0deg);
@@ -231,5 +231,5 @@ img {
 .cardImg:hover {
   cursor: pointer;
   animation-name: bounce;
-  filter: drop-shadow(0px 4px 4px 0px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
