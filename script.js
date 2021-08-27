@@ -4,6 +4,10 @@ const levelBtns = document.querySelectorAll('.level__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
+let deck = document.querySelector('.deck');
+let card = document.querySelectorAll('.cardImg');
+
+
 // выбираем уровень, навешиваем класс active на выбранный уровень
 function selectLevel(event) {
     if (event.target.classList.contains('level__btn')) {
@@ -26,92 +30,44 @@ function getSelectedLevel() {
   const getActiveBtn = arrLevelBtns.filter(item => item.classList.contains('active')); // находим выбранный уровень
   let lvl = getActiveBtn[0].dataset.level; //получили значение атрибута выбранного уровня
 
-
-  // let arrAttrBtn = arrLevelBtns.map(item => item.dataset.level); //получаем массив из data-атрибутов
-  //перебрали атрибуты уровней
-  // for (let lvls of arrAttrBtn) {
-  //   console.log(lvls);
-  // }
-
-
   switch (lvl) {
     case '3':
-      console.log('Опа 3!')
-      // dealCards(3);
+      console.log('Опа 3 карты!');
+      dealCards(3);
       break;
     case '6':
-      console.log('Опа 6!')
-      // dealCards(6);
+      console.log('Опа 6 карт!');
+      dealCards(6);
       break;
     case '10':
-      console.log('Опа 10!')
-      // dealCards(10);
+      console.log('Опа 10 карт!');
+      dealCards(10);
       break;
     default:
-      console.log('Опа хз!')
+      console.log('Опа!');
   }
 }
 
+//функция добавления карт на стол
+function dealCards(cards) {
+  let gamePage = document.body.children[1];
+  let deck = document.createElement('div');
+  gamePage.appendChild(deck);
+  let deckOfCards = gamePage.firstElementChild;
+  deckOfCards.classList.add('deck');
+  
+  for (let card = 1; card <= cards; card++) {
+    let img = document.createElement('img');
+    deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
+    let imgOfCards = deckOfCards.firstElementChild;
+    imgOfCards.classList.add('cardImg');
+  }
+}
+
+// начало игры
 const startGame = () => {
   getSelectedLevel();
   document.body.removeChild(menu);
-  game.style.display = flex;
-};
+}
 
 startBtn.addEventListener('click', startGame);
-
-
-
-
-
-
-//добавление карт на стол
-// let gamePage = document.body.children[1];
-// let deck = document.createElement('div');
-// gamePage.appendChild(deck);
-// let deckOfCards = gamePage.firstElementChild;
-// deckOfCards.classList.add('deck');
-// let putCards = document.createElement('img');
-// gamePage.appendChild(putCards).src = 'img/card_face_down.svg';
-
-
-
-// function dealCards(cards) {
-  
-//   let card = [
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg',
-//   'img/card_face_down.svg'
-// ];
-
-//   for (let numberOfCards = 0; numberOfCards <= cards; numberOfCards++) {
-//     let deck = document.createElement('div');
-//     let cards = document.createElement('img');
-//     cards.src = card[x];
-//     deck.setAttribute("class", "deck");
-//       deck.appendChild(cards);
-//       x++;
-//         document.querySelector("#cards").appendChild(deck);
-//   }
-// };
-
-// dealCards();
-
-
-
-
-
-
-
-
-
-
-

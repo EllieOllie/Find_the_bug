@@ -13,8 +13,7 @@ body {
   background-size: cover;
 }
 
-.start-page,
-.game-page {
+.start-page {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -187,4 +186,19 @@ img {
 
 .card-back {
   display: none;
+}
+
+.game-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.deck {
+  display: grid;
+  grid-template-columns: 243px 243px 221px;
+  grid-row-gap: 19px;
+
+  /* grid-template-columns: 243px 243px 243px 243px 221px; */
 }
