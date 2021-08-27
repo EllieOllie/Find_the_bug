@@ -53,8 +53,8 @@ function dealCards(cards) {
   for (let card = 1; card <= cards; card++) {
     let img = document.createElement('img');
     deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
-    // let imgOfCards = deckOfCards.firstElementChild;
-    // imgOfCards.classList.add('cardImg');
+    let imgOfCards = deckOfCards.firstElementChild;
+    imgOfCards.classList.add('cardImg');
   }
 }
 

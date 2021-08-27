@@ -202,3 +202,33 @@ img {
 
   /* grid-template-columns: 243px 243px 243px 243px 221px; */
 }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+    25%, 50%, 75% {
+    transform: translateY(-10%);
+  }
+	0%, 100% {
+		transform: rotate(0deg);
+	}
+  20%, 60% {
+		transform: rotate(-5deg);
+	}
+	40%, 80% {
+		transform: rotate(5deg);
+	}
+}
+
+.cardImg {  
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.cardImg:hover {
+  cursor: pointer;
+  animation-name: bounce;
+}
