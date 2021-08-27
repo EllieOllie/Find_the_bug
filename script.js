@@ -4,8 +4,8 @@ const levelBtns = document.querySelectorAll('.level__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
-let deck = document.querySelector('.deck');
-let card = document.querySelectorAll('.cardImg');
+// let deck = document.querySelector('.deck');
+// let card = document.querySelectorAll('.cardImg');
 
 // выбираем уровень, навешиваем класс active на выбранный уровень
 function selectLevel(event) {
