@@ -104,6 +104,8 @@ a,
 
 .level__btn,
 .button,
+.card__front-flip-menu,
+.card__back-flip-menu,
 .card__front-flip,
 .card__back-flip {
   cursor: pointer;
@@ -132,39 +134,39 @@ a,
   position: relative;
 }
 
-.flip-card-inner {
+.flip-card-inner-menu {
   text-align: center;
   transition: transform .5s;
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card-menu:hover .flip-card-inner-menu {
   transform: rotateY(180deg);
 }
 
-.flip-card:hover
-.flip-card-inner {
+.flip-card-menu:hover
+.flip-card-inner-menu {
   transition: .7s ease-in-out;
 }
 
-.card__back-flip {
+.card__back-flip-menu {
   top: 15vw;
   left: 0; 
 }
 
-.card__front-flip,
-.card__back-flip {
+.card__front-flip-menu,
+.card__back-flip-menu {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
 
-.card__back-flip {
+.card__back-flip-menu {
   transform: rotateY(180deg);
 }
 
-.card__front-flip {
+.card__front-flip-menu {
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   transform: rotate(39.26deg);
   position: absolute;
@@ -184,23 +186,44 @@ img {
   width: 15.4vw;
 }
 
-.card-back {
-  display: none;
-}
-
 .game-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 66vh;
 }
 
 .deck {
   display: grid;
-  grid-template-columns: 243px 243px 221px;
-  grid-row-gap: 19px;
+  grid-template-columns: 243px 243px 243px;
+  grid-row-gap: 25.4vw;
+}
 
-  /* grid-template-columns: 243px 243px 243px 243px 221px; */
+.flip-card-inner {
+  text-align: center;
+  transition: transform .5s;
+  transform-style: preserve-3d;
+}
+
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+/* .flip-card:hover
+.flip-card-inner {
+  transition: .7s ease-in-out;
+} */
+
+.card__front-flip,
+.card__back-flip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card__back-flip {
+  transform: rotateY(180deg);
 }
 
 @keyframes bounce {
@@ -208,7 +231,7 @@ img {
     transform: translateY(0%);
   }
     25%, 50%, 75% {
-    transform: translateY(-15%);
+    transform: translateY(-8%);
   }
 	0%, 100% {
 		transform: rotate(0deg);
@@ -221,14 +244,14 @@ img {
 	}
 }
 
-.cardImg {  
+.CardFaceDown {  
   animation-duration: 2s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
-.cardImg:hover {
+.CardFaceDown:hover {
   cursor: pointer;
   animation-name: bounce;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

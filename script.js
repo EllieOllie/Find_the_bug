@@ -22,9 +22,10 @@ levelList.addEventListener('click', selectLevel);
 
 //функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
 function getSelectedLevel() {
-  const arrLevelBtns = Array.from(levelBtns); // переводим в массив
-  const getActiveBtn = arrLevelBtns.filter(item => item.classList.contains('active')); // находим выбранный уровень
-  let lvl = getActiveBtn[0].dataset.level; //получили значение атрибута выбранного уровня
+  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
+  
+  //тоже самое ПРОВЕРИТЬ! не работает!
+  // const lvl = document.querySelector('.active');
 
   switch (lvl) {
     case '3':
@@ -35,7 +36,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
-      game.firstElementChild.style.gridTemplateColumns ='243px 243px 243px 243px 221px';
+      game.firstElementChild.style.gridTemplateColumns ='243px 243px 243px 243px 243px';
       break;
     default:
       console.log('Опа!');
@@ -45,16 +46,43 @@ function getSelectedLevel() {
 //функция добавления карт на стол
 function dealCards(cards) {
   let gamePage = document.body.children[1];
+
   let deck = document.createElement('div');
   gamePage.appendChild(deck);
-  let deckOfCards = gamePage.firstElementChild;
-  deckOfCards.classList.add('deck');
+  deck.classList.add('deck');
   
   for (let card = 1; card <= cards; card++) {
-    let img = document.createElement('img');
-    deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
-    let imgOfCards = deckOfCards.firstElementChild;
-    imgOfCards.classList.add('cardImg');
+
+    let flip = document.createElement('div');
+    deck.appendChild(flip);
+    flip.classList.add('flip-card');
+
+    let flipInner = document.createElement('div');
+    flip.appendChild(flipInner);
+    flipInner.classList.add('flip-card-inner');
+
+    let frontFlip = document.createElement('div');
+    flipInner.appendChild(frontFlip);
+    frontFlip.classList.add('card__front-flip');
+
+    let imgCardFaceDown = document.createElement('img');
+    frontFlip.appendChild(imgCardFaceDown).src = 'img/card_face_down.svg';
+    imgCardFaceDown.classList.add('CardFaceDown');
+
+
+    let backFlip = document.createElement('div');
+    flipInner.appendChild(backFlip);
+    backFlip.classList.add('card__back-flip');
+
+    let imgCardGameOver = document.createElement('img');
+    backFlip.appendChild(imgCardGameOver).src = 'img/card_Game_over.svg';
+    imgCardGameOver.classList.add('CardGameOver');
+
+
+    // let img = document.createElement('img');
+    // deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
+    // let imgOfCards = deckOfCards.firstElementChild;
+    // imgOfCards.classList.add('cardImg');
   }
 }
 
