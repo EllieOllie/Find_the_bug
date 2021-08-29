@@ -77,12 +77,6 @@ function dealCards(cards) {
     let imgCardGameOver = document.createElement('img');
     backFlip.appendChild(imgCardGameOver).src = 'img/card_Game_over.svg';
     imgCardGameOver.classList.add('CardGameOver');
-
-
-    // let img = document.createElement('img');
-    // deckOfCards.appendChild(img).src = 'img/card_face_down.svg';
-    // let imgOfCards = deckOfCards.firstElementChild;
-    // imgOfCards.classList.add('cardImg');
   }
 }
 
