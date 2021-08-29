@@ -80,29 +80,28 @@ function dealCards(cards) {
   }
 }
 
+// выбираем карту, навешиваем класс flip на выбранную карту
+function getCard() {
+  const flipCardInner = document.querySelectorAll('.flip-card-inner');
+
+  flipCardInner.forEach(function(card) {
+    card.addEventListener('click', () => card.classList.toggle('flip'));
+  });
+}
+
 // начало игры
 const startGame = () => {
   getSelectedLevel();
+
   document.body.removeChild(menu);
+
   game.style.display = 'flex';
   game.style.justifyContent = 'center';
   game.style.alignItems = 'center';
   game.style.height = '66vh';
 
-
-  // выбираем карту, навешиваем класс flip на выбранную карту
-  const flipCardInner = document.querySelectorAll('.flip-card-inner');
-  console.log(flipCardInner);
-  
-  function rotate() {
-    flipCardInner.classList.toggle('flip');
-  }
-
-  flipCardInner.addEventListener('click', rotate);
+  getCard();
 }
 
 startBtn.addEventListener('click', startGame);
-
-
-
 

@@ -198,15 +198,6 @@ img {
   transform-style: preserve-3d;
 }
 
-/* .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
-
-/* .flip-card:hover
-.flip-card-inner {
-  transition: .7s ease-in-out;
-} */
-
 .card__front-flip,
 .card__back-flip {
   position: absolute;
@@ -245,7 +236,7 @@ img {
   animation-duration: 2s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 .CardFaceDown:hover {
