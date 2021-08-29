@@ -45,10 +45,9 @@ function getSelectedLevel() {
 
 //функция добавления карт на стол
 function dealCards(cards) {
-  let gamePage = document.body.children[1];
 
   let deck = document.createElement('div');
-  gamePage.appendChild(deck);
+  game.appendChild(deck);
   deck.classList.add('deck');
   
   for (let card = 1; card <= cards; card++) {
@@ -81,13 +80,45 @@ function dealCards(cards) {
 }
 
 // выбираем карту, навешиваем класс flip на выбранную карту
-function getCard() {
+function rotateCard() {
   const flipCardInner = document.querySelectorAll('.flip-card-inner');
 
   flipCardInner.forEach(function(card) {
     card.addEventListener('click', () => card.classList.toggle('flip'));
   });
+
+
+  // карта, которую выбрали
+  const clickedCard = document.querySelector('.flip');
+  console.log(clickedCard);
+
+  // функция получения рандомного положения карты с багом
+  function getRandomCard() {
+    const numbersOfCards = document.querySelectorAll('.flip-card').length;
+    min = 1
+    max = numbersOfCards;
+    return indexCard = Math.floor(Math.random()*(max - min + 1) + min);
+  }
+  console.log(getRandomCard());
 }
+
+
+  // функция замены одной карты на карту с багом
+  // function replaceCard(index) {
+  //   let oldCard = document.querySelector('.CardGameOver');
+  //   oldCard.src = 'img/card_with_BUG.svg';
+
+  // }
+  // console.log(replaceCard());
+
+
+
+
+
+
+
+
+
 
 // начало игры
 const startGame = () => {
@@ -100,8 +131,9 @@ const startGame = () => {
   game.style.alignItems = 'center';
   game.style.height = '66vh';
 
-  getCard();
+  rotateCard();
 }
 
 startBtn.addEventListener('click', startGame);
+
 
