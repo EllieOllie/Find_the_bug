@@ -23,7 +23,7 @@ levelList.addEventListener('click', selectLevel);
 //функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
 function getSelectedLevel() {
   const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
-  
+
   //тоже самое ПРОВЕРИТЬ! не работает!
   // const lvl = document.querySelector('.active');
 
@@ -84,6 +84,25 @@ function dealCards(cards) {
 const startGame = () => {
   getSelectedLevel();
   document.body.removeChild(menu);
+  game.style.display = 'flex';
+  game.style.justifyContent = 'center';
+  game.style.alignItems = 'center';
+  game.style.height = '66vh';
+
+
+  // выбираем карту, навешиваем класс flip на выбранную карту
+  const flipCardInner = document.querySelectorAll('.flip-card-inner');
+  console.log(flipCardInner);
+  
+  function rotate() {
+    flipCardInner.classList.toggle('flip');
+  }
+
+  flipCardInner.addEventListener('click', rotate);
 }
 
 startBtn.addEventListener('click', startGame);
+
+
+
+
