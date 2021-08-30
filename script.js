@@ -35,7 +35,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
-      game.firstElementChild.style.gridTemplateColumns ='243px 243px 243px 243px 243px';
+      game.firstElementChild.style.gridTemplateColumns ='17vw 17vw 17vw 17vw 17vw';
       break;
     default:
       console.log('Опа!');
@@ -96,7 +96,7 @@ function rotateCard() {
     // функция замены одной карты на карту с багом
     function replaceCard() {
       let index = getRandomCard();
-      console.log(`Баг находится нод номером ${index}, нумерация карт начинается с 0 слева-направо`);
+      console.log(`Баг находится под картой № ${parseInt(index+1)}`);
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
     }

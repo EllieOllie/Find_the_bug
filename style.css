@@ -45,7 +45,7 @@ a,
 
 .title {
   font: bold 3.96vw/4.5vw roboto, arial, sans-serif;
-  padding-bottom: 7px;
+  padding-bottom: 0.9vh;
 }
 
 .description {
@@ -66,7 +66,7 @@ a,
 
 .level {
   font: bold 3.45vw/3.85vw roboto, arial, sans-serif;
-  transform: translateX(-10px);
+  transform: translate(-0.9vh, -0.2vh);
 }
 
 .lvl {
@@ -98,8 +98,8 @@ a,
 .level__btn.active::before {
   opacity: 1;
   position: relative;
-  top: -4px;
-  left: -17px;
+  top: -0.4vh;
+  left: -1.7vh;
 }
 
 .level__btn,
@@ -188,7 +188,7 @@ img {
 
 .deck {
   display: grid;
-  grid-template-columns: 243px 243px 243px;
+  grid-template-columns: 17vw 17vw 17vw;
   grid-row-gap: 25.4vw;
 }
 
@@ -240,4 +240,50 @@ img {
 
 .game-page.hide {
   visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .main {
+    height: 23.8vh;
+  }
+  .title {
+    font: bold 3.96vh/4.5vh roboto, arial, sans-serif;
+  }
+
+  .description {
+    font: 1.36vh/2vh robotoregular, arial, sans-serif;
+  }
+
+  .level {
+    font: bold 3.45vh/3.85vh roboto, arial, sans-serif;
+  }
+
+  .level__btn::before {
+    width: 1.4vh;
+    height: 1.4vh;
+  }
+
+  .button {
+    font: bold 2.2vh/2.65vh roboto, arial, sans-serif;
+    padding: 2vh 6vh;
+  }
+
+  .card-lower {
+    top: 27.7vh;
+    left: -12.5vh;
+  }
+
+  .card__front-flip-menu {
+    top: 33.7vh;
+    left: 5.4vh;
+  }
+
+  .card__back-flip-menu {
+    top: 27vh;
+    left: 4vh;
+  }
+
+  img {
+    width: 15.4vh;
+  }
 }
