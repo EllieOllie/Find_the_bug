@@ -1,3 +1,4 @@
+const body = document.querySelector('.body');
 const menu = document.querySelector('#start-page');
 const levelList = document.querySelector('#level-list');
 const levelBtns = document.querySelectorAll('.level__btn');
@@ -22,10 +23,8 @@ levelList.addEventListener('click', selectLevel);
 
 //функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
 function getSelectedLevel() {
-  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
-
-  //тоже самое ПРОВЕРИТЬ! не работает!
-  // const lvl = document.querySelector('.active');
+  //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
+  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; 
 
   switch (lvl) {
     case '3':
@@ -79,52 +78,43 @@ function dealCards(cards) {
   }
 }
 
-// выбираем карту, навешиваем класс flip на выбранную карту
 function rotateCard() {
   const flipCardInner = document.querySelectorAll('.flip-card-inner');
+  // выбираем карту, навешиваем класс flip при клике на выбранную карту
+  flipCardInner.forEach(card => card.addEventListener('click', () => {
+    card.classList.toggle('flip');
+    rotate();
 
-  flipCardInner.forEach(function(card) {
-    card.addEventListener('click', () => card.classList.toggle('flip'));
-  });
+    // функция получения рандомного положения карты с багом
+    function getRandomCard() {
+      const numbersOfCards = document.querySelectorAll('.flip-card').length;
+      min = 1
+      max = numbersOfCards;
+      return Math.floor(Math.random()*(max - min + min));
+    }
 
-
-  // карта, которую выбрали
-  const clickedCard = document.querySelector('.flip');
-  console.log(clickedCard);
-
-  // функция получения рандомного положения карты с багом
-  function getRandomCard() {
-    const numbersOfCards = document.querySelectorAll('.flip-card').length;
-    min = 1
-    max = numbersOfCards;
-    return indexCard = Math.floor(Math.random()*(max - min + 1) + min);
+    // функция замены одной карты на карту с багом
+    function replaceCard() {
+      let index = getRandomCard();
+      console.log(`Баг находится нод номером ${index}, нумерация карт начинается с 0 слева-направо`);
+      let oldCard = document.querySelectorAll('.CardGameOver');
+      oldCard[index].src = 'img/card_with_BUG.svg';
+    }
+    replaceCard();
+  }));
+  
+  // функция, убирающая ховер при клике на карту
+  function rotate() {
+    const hoverCard = document.querySelector('.CardFaceDown:hover');
+    hoverCard.style.animation = 'none';
   }
-  console.log(getRandomCard());
 }
-
-
-  // функция замены одной карты на карту с багом
-  // function replaceCard(index) {
-  //   let oldCard = document.querySelector('.CardGameOver');
-  //   oldCard.src = 'img/card_with_BUG.svg';
-
-  // }
-  // console.log(replaceCard());
-
-
-
-
-
-
-
-
-
 
 // начало игры
 const startGame = () => {
   getSelectedLevel();
 
-  document.body.removeChild(menu);
+  body.removeChild(menu);
 
   game.style.display = 'flex';
   game.style.justifyContent = 'center';
@@ -135,5 +125,10 @@ const startGame = () => {
 }
 
 startBtn.addEventListener('click', startGame);
+
+
+
+
+
 
 
