@@ -5,13 +5,14 @@ const levelBtns = document.querySelectorAll('.level__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
-// выбираем уровень, навешиваем класс active на выбранный уровень
+// функция выбора уровня (выбираем, навешиваем класс active на выбранный уровень)
 function selectLevel(event) {
     if (event.target.classList.contains('level__btn')) {
       clearActiveClass();
       event.target.classList.add('active');
   }
 }
+
 // функция, снимающая класс active, если выбран другой уровень
 function clearActiveClass() {
   levelBtns.forEach((levelBtn) => {
@@ -25,7 +26,6 @@ levelList.addEventListener('click', selectLevel);
 function getSelectedLevel() {
   //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
   const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; 
-
   switch (lvl) {
     case '3':
       dealCards(3);
@@ -44,13 +44,11 @@ function getSelectedLevel() {
 
 //функция добавления карт на стол
 function dealCards(cards) {
-
   let deck = document.createElement('div');
   game.appendChild(deck);
   deck.classList.add('deck');
   
   for (let card = 1; card <= cards; card++) {
-
     let flip = document.createElement('div');
     deck.appendChild(flip);
     flip.classList.add('flip-card');
@@ -67,7 +65,6 @@ function dealCards(cards) {
     frontFlip.appendChild(imgCardFaceDown).src = 'img/card_face_down.svg';
     imgCardFaceDown.classList.add('CardFaceDown');
 
-
     let backFlip = document.createElement('div');
     flipInner.appendChild(backFlip);
     backFlip.classList.add('card__back-flip');
@@ -78,12 +75,20 @@ function dealCards(cards) {
   }
 }
 
+// функция удаления главного меню
+function replaceScreen() {
+  body.removeChild(menu);
+  [game.style.display, game.style.justifyContent, game.style.alignItems, game.style.height] = ['flex', 'center', 'center', '66vh'];
+}
+
 function rotateCard() {
   const flipCardInner = document.querySelectorAll('.flip-card-inner');
+  
   // выбираем карту, навешиваем класс flip при клике на выбранную карту
   flipCardInner.forEach(card => card.addEventListener('click', () => {
     card.classList.toggle('flip');
     rotate();
+    replaceCard();
 
     // функция получения рандомного положения карты с багом
     function getRandomCard() {
@@ -100,7 +105,6 @@ function rotateCard() {
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
     }
-    replaceCard();
   }));
   
   // функция, убирающая ховер при клике на карту
@@ -113,14 +117,7 @@ function rotateCard() {
 // начало игры
 const startGame = () => {
   getSelectedLevel();
-
-  body.removeChild(menu);
-
-  game.style.display = 'flex';
-  game.style.justifyContent = 'center';
-  game.style.alignItems = 'center';
-  game.style.height = '66vh';
-
+  replaceScreen();
   rotateCard();
 }
 
