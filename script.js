@@ -35,7 +35,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
-      game.firstElementChild.style.gridTemplateColumns ='17vw 17vw 17vw 17vw 17vw';
+      game.firstElementChild.style.gridTemplateColumns ='16.8vw 16.8vw 16.8vw 16.8vw 16.8vw';
       break;
     default:
       console.log('Опа!');
@@ -44,15 +44,11 @@ function getSelectedLevel() {
 
 //функция добавления карт на стол
 function dealCards(cards) {
-  let deck = document.createElement('div');
-  game.appendChild(deck);
-  deck.classList.add('deck');
+  let flip = document.createElement('div');
+  game.appendChild(flip);
+  flip.classList.add('flip-card');
   
   for (let card = 1; card <= cards; card++) {
-    let flip = document.createElement('div');
-    deck.appendChild(flip);
-    flip.classList.add('flip-card');
-
     let flipInner = document.createElement('div');
     flip.appendChild(flipInner);
     flipInner.classList.add('flip-card-inner');
