@@ -109,7 +109,6 @@ function rotateCard() {
     // функция удаления игрового поля и добавления главного меню
     function hideGamePage() {
       body.removeChild(game);
-      body.appendChild(menu);
       location.reload();
     }
 

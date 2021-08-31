@@ -243,6 +243,10 @@ img {
 }
 
 @media (max-width: 768px) {
+  body {
+    background-size: auto;
+  }
+
   .main {
     height: 23.8vh;
   }
@@ -285,5 +289,10 @@ img {
 
   img {
     width: 15.4vh;
+  }
+
+  .deck {
+    grid-template-columns: 17vh 17vh 17vh;
+    grid-row-gap: 45vw;
   }
 }
