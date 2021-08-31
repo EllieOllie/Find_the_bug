@@ -75,8 +75,8 @@ function dealCards(cards) {
   }
 }
 
-// функция удаления главного меню
-function replaceScreen() {
+// функция удаления главного меню и добавления игрового поля
+function hideMenu() {
   body.removeChild(menu);
   [game.style.display, game.style.justifyContent, game.style.alignItems, game.style.height] = ['flex', 'center', 'center', '66vh'];
 }
@@ -105,6 +105,15 @@ function rotateCard() {
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
     }
+    
+    // функция удаления игрового поля и добавления главного меню
+    function hideGamePage() {
+      body.removeChild(game);
+      body.appendChild(menu);
+      location.reload();
+    }
+
+    document.querySelector('.flip').addEventListener('click', hideGamePage);
   }));
   
   // функция, убирающая ховер при клике на карту
@@ -117,7 +126,7 @@ function rotateCard() {
 // начало игры
 const startGame = () => {
   getSelectedLevel();
-  replaceScreen();
+  hideMenu();
   rotateCard();
 }
 
