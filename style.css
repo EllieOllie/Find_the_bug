@@ -8,14 +8,11 @@ body,
 }
 
 body {
-  background: url(img/Background.jpg);
-  background-color: #01977c;
-  background-size: cover;
+  background: #01977c no-repeat url(img/Background.jpg);
 }
 
   .start-page {
   width: 85.6%;
-  height: 100vh;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -166,7 +163,7 @@ a,
 }
 
 img {
-  width: 15.4vw;
+  width: 21.8vh;
 }
 
 .flip-card {
@@ -225,10 +222,39 @@ img {
   visibility: hidden;
 }
 
-@media (max-width: 850px) {
-  .cards {
-    display: none;
+@media (max-width: 768px) {
+  .start-page {
+    padding-top: 44vw;
+    align-items: center;
   }
+
+  .text {
+    text-align: center;
+    margin-bottom: 3.1vh;
+  }
+
+  .menu {
+    justify-content: normal;
+  }
+
+  .cards {
+    position: inherit;
+  }
+
+  .lower-card {
+    top: 4.1vh;
+    right: 26vh;
+  }
+
+  .top-card {
+    top: 5vh;
+    right: 11.7vh;
+  }
+
+  img {
+    width: 13.8vh;
+  }
+
 /* 
   .game-page {
     height: 80vh;
