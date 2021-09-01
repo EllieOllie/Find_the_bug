@@ -115,7 +115,7 @@ function rotateCard() {
       location.reload();
     }
 
-    //gерезагрузка при клике на любую карту после окончания игры
+    //перезагрузка при клике на любую карту после окончания игры
     flipCardInner.forEach(card => card.addEventListener('click', hideGamePage));
   }));
 }
