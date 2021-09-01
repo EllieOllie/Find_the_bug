@@ -203,19 +203,38 @@ img {
     margin-bottom: 4.1vh;
   }
 
-  .flip-card {
-    grid-template-columns: 32.8vw 32.8vw 32.8vw;
-    grid-row-gap: 50vw;
+  .flip-card,
+  .flip-card.grid-cards10 {
+    grid-template-columns: 30vw 30vw 30vw;
+    grid-row-gap: 33vw;
   }
 
   img {
-    width: 17.4vh;
+    width: 20vw;
+  }
+
+  .game-page {
+    padding-top: 7%;
   }
 
 /* стили для 10 карт для мобилки */
 
-.flip-card.grid-cards10 {
+/* .flip-card.grid-cards10 {
     grid-template-columns: 30vw 30vw;
     grid-row-gap: 34vw;
-  }
+  } */
 } 
+
+@media (max-width: 375px) {
+  .flip-card, .flip-card.grid-cards10 {
+    grid-row-gap: 43vw;
+  }
+
+  img {
+    width: 26vw;
+  }
+
+  .game-page {
+    padding-top: 9%;
+  }
+}
