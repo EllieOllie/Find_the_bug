@@ -1,13 +1,13 @@
 const body = document.querySelector('.body');
 const menu = document.querySelector('#start-page');
 const levelList = document.querySelector('#level-list');
-const levelBtns = document.querySelectorAll('.level__btn');
+const levelBtns = document.querySelectorAll('.lvl__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
 // функция выбора уровня (выбираем, навешиваем класс active на выбранный уровень)
 function selectLevel(event) {
-    if (event.target.classList.contains('level__btn')) {
+    if (event.target.classList.contains('lvl__btn')) {
       clearActiveClass();
       event.target.classList.add('active');
   }
@@ -35,7 +35,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
-      game.firstElementChild.style.gridTemplateColumns ='16.8vw 16.8vw 16.8vw 16.8vw 16.8vw';
+      game.firstElementChild.classList.add('grid-cards10');
       break;
     default:
       console.log('Опа!');
