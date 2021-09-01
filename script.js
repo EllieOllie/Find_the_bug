@@ -49,6 +49,7 @@ function dealCards(cards) {
   flip.classList.add('flip-card');
   
   for (let card = 1; card <= cards; card++) {
+
     let flipInner = document.createElement('div');
     flip.appendChild(flipInner);
     flipInner.classList.add('flip-card-inner');
@@ -80,6 +81,12 @@ function hideMenu() {
 function rotateCard() {
   const flipCardInner = document.querySelectorAll('.flip-card-inner');
   
+  // функция, убирающая ховер при клике на карту
+  function rotate() {
+    const hoverCard = document.querySelector('.CardFaceDown:hover');
+    hoverCard.style.animation = 'none';
+  }
+
   // выбираем карту, навешиваем класс flip при клике на выбранную карту
   flipCardInner.forEach(card => card.addEventListener('click', () => {
     card.classList.toggle('flip');
@@ -108,14 +115,9 @@ function rotateCard() {
       location.reload();
     }
 
-    document.querySelector('.flip').addEventListener('click', hideGamePage);
+    //gерезагрузка при клике на любую карту после окончания игры
+    flipCardInner.forEach(card => card.addEventListener('click', hideGamePage));
   }));
-  
-  // функция, убирающая ховер при клике на карту
-  function rotate() {
-    const hoverCard = document.querySelector('.CardFaceDown:hover');
-    hoverCard.style.animation = 'none';
-  }
 }
 
 // начало игры

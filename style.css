@@ -234,17 +234,17 @@ img {
     height: 80vh;
   }
 
-  .deck {
+  .flip-card {
     grid-template-columns: 17vh 17vh 17vh;
     grid-row-gap: 45vw;
   }
 
-  .deck-10cards {
+  .flip-card-10cards {
     grid-template-columns: 30vw 30vw;
     grid-row-gap: 26vw;
   }
 
-  .deck-10cards img {
+  .flip-card-10cards img {
     width: 12vh;
   } */
 } 
