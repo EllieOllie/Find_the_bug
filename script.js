@@ -25,7 +25,7 @@ levelList.addEventListener('click', selectLevel);
 //функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
 function getSelectedLevel() {
   //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
-  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; 
+  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level;
   switch (lvl) {
     case '3':
       dealCards(3);
@@ -90,23 +90,25 @@ function rotateCard() {
   // выбираем карту, навешиваем класс flip при клике на выбранную карту
   flipCardInner.forEach(card => card.addEventListener('click', () => {
     card.classList.toggle('flip');
+
+    let index = getRandomCard();
+
     rotate();
     replaceCard();
 
     // функция получения рандомного положения карты с багом
     function getRandomCard() {
-      const numbersOfCards = document.querySelectorAll('.flip-card').length;
+      const numbersOfCards = document.querySelectorAll('.flip-card-inner').length;
       min = 1
       max = numbersOfCards;
       return Math.floor(Math.random()*(max - min + min));
     }
 
     // функция замены одной карты на карту с багом
-    function replaceCard() {
-      let index = getRandomCard();
-      console.log(`Баг находится под картой № ${parseInt(index+1)}`);
+    function replaceCard() {      
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
+      console.log(`Баг находится под картой № ${parseInt(index+1)}`);      
     }
     
     // функция удаления игрового поля и добавления главного меню
