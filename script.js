@@ -91,8 +91,6 @@ function rotateCard() {
   flipCardInner.forEach(card => card.addEventListener('click', () => {
     card.classList.toggle('flip');
 
-    let index = getRandomCard();
-
     rotate();
     replaceCard();
 
@@ -105,7 +103,8 @@ function rotateCard() {
     }
 
     // функция замены одной карты на карту с багом
-    function replaceCard() {      
+    function replaceCard() {
+      let index = getRandomCard();
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
       console.log(`Баг находится под картой № ${parseInt(index+1)}`);      
