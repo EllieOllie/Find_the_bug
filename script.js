@@ -1,13 +1,13 @@
 const body = document.querySelector('.body');
 const menu = document.querySelector('#start-page');
 const levelList = document.querySelector('#level-list');
-const levelBtns = document.querySelectorAll('.level__btn');
+const levelBtns = document.querySelectorAll('.lvl__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
 // функция выбора уровня (выбираем, навешиваем класс active на выбранный уровень)
 function selectLevel(event) {
-    if (event.target.classList.contains('level__btn')) {
+    if (event.target.classList.contains('lvl__btn')) {
       clearActiveClass();
       event.target.classList.add('active');
   }
@@ -25,7 +25,7 @@ levelList.addEventListener('click', selectLevel);
 //функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
 function getSelectedLevel() {
   //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получили значение атрибута выбранного уровня
-  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level; 
+  const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level;
   switch (lvl) {
     case '3':
       dealCards(3);
@@ -35,7 +35,7 @@ function getSelectedLevel() {
       break;
     case '10':
       dealCards(10);
-      game.firstElementChild.style.gridTemplateColumns ='16.8vw 16.8vw 16.8vw 16.8vw 16.8vw';
+      game.firstElementChild.classList.add('grid-cards10');
       break;
     default:
       console.log('Опа!');
@@ -90,23 +90,25 @@ function rotateCard() {
   // выбираем карту, навешиваем класс flip при клике на выбранную карту
   flipCardInner.forEach(card => card.addEventListener('click', () => {
     card.classList.toggle('flip');
+
+    let index = getRandomCard();
+
     rotate();
     replaceCard();
 
     // функция получения рандомного положения карты с багом
     function getRandomCard() {
-      const numbersOfCards = document.querySelectorAll('.flip-card').length;
+      const numbersOfCards = document.querySelectorAll('.flip-card-inner').length;
       min = 1
       max = numbersOfCards;
       return Math.floor(Math.random()*(max - min + min));
     }
 
     // функция замены одной карты на карту с багом
-    function replaceCard() {
-      let index = getRandomCard();
-      console.log(`Баг находится под картой № ${parseInt(index+1)}`);
+    function replaceCard() {      
       let oldCard = document.querySelectorAll('.CardGameOver');
       oldCard[index].src = 'img/card_with_BUG.svg';
+      console.log(`Баг находится под картой № ${parseInt(index+1)}`);      
     }
     
     // функция удаления игрового поля и добавления главного меню
@@ -115,7 +117,7 @@ function rotateCard() {
       location.reload();
     }
 
-    //gерезагрузка при клике на любую карту после окончания игры
+    //перезагрузка при клике на любую карту после окончания игры
     flipCardInner.forEach(card => card.addEventListener('click', hideGamePage));
   }));
 }

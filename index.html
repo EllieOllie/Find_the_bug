@@ -12,34 +12,27 @@
 </head>
 <body class="body">
   <section class="start-page" id="start-page">
+    <div class="cards">
+      <img class="cards__img" src="img/cards-menu.svg" alt="cards_menu">
+    </div>                  
     <div class="text">
       <h1 class="title">Выберите уровень сложности:</h1>
       <p class="description">Выберите сложность и игра начнется. Чем выше уровень - тем больше будет выборка карт.</p>
     </div>
-    <div class="main">
-      <div class="menu">
-        <ul class="level" id="level-list">
-          <li class="lvl">
-            <a href="#" class=" level__btn" data-level="3">Простой</a>
-          </li>
-          <li class="lvl">
-            <a href="#" class="level__btn" data-level="6">Средний</a>
-          </li>
-          <li class="lvl">
-            <a href="#" class="level__btn" data-level="10">Сложный</a>
-          </li>
-        </ul>
-        <button id="start-game" class="button">Начать игру</button>
-      </div>
-      <div class="cards">
-        <div class="lower-card">
-          <img src="img/card_face_down.svg" alt="card_face_down">
-        </div>
-        <div class="top-card">
-          <img src="img/card_face_down.svg" alt="card_face_down">
-        </div>                    
-      </div>        
-    </div>      
+    <div class="menu">
+      <ul class="level" id="level-list">
+        <li class="lvl">
+          <a href="#" class=" lvl__btn" data-level="3">Простой</a>
+        </li>
+        <li class="lvl">
+          <a href="#" class="lvl__btn" data-level="6">Средний</a>
+        </li>
+        <li class="lvl">
+          <a href="#" class="lvl__btn" data-level="10">Сложный</a>
+        </li>
+      </ul>
+      <button id="start-game" class="button">Начать игру</button>
+    </div>
   </section>
   <section class="game-page" id="game-page"></section>
   <script src="script.js"></script>
