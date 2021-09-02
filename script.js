@@ -5,17 +5,15 @@ const levelBtns = document.querySelectorAll('.lvl__btn');
 const startBtn = document.querySelector('.button');
 const game = document.querySelector('#game-page');
 
-// функция выбора уровня (выбираем, навешиваем класс active на выбранный уровень)
-function selectLevel(event) {
-    if (event.target.classList.contains('lvl__btn')) {
-      levelBtns.forEach(levelBtn => levelBtn.classList.remove('active')); // cнимает класс active, если выбран другой уровень
-      event.target.classList.add('active');
+// Выбор уровня (выбираем, навешиваем класс active на выбранный уровень)
+levelList.addEventListener('click', function (event) {
+  if (event.target.classList.contains('lvl__btn')) {
+    levelBtns.forEach(levelBtn => levelBtn.classList.remove('active')); // cнимает класс active, если выбран другой уровень
+    event.target.classList.add('active');
   }
-}
+});
 
-levelList.addEventListener('click', selectLevel);
-
-//функция получения выбранного уровня по атрибуту и определяющая необходимое число карт для игры
+//функция получения выбранного уровня по атрибуту, определяющая необходимое число карт для игры
 function getSelectedLevel() {
   //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получаем значение атрибута выбранного уровня
   const lvl = Array.from(levelBtns).filter(item => item.classList.contains('active'))[0].dataset.level;
@@ -68,10 +66,11 @@ function dealCards(cards) {
 // функция удаления главного меню и добавления игрового поля
 function hideMenu() {
   body.removeChild(menu);
-  [game.style.display, game.style.justifyContent, game.style.alignItems, game.style.height] = ['flex', 'center', 'center', '66vh'];
+  game.style.display = 'flex';
 }
-
+// переворачиваем карты
 function rotateCard() {
+  // получаем все карты выбранного уровня
   const flipCardInner = document.querySelectorAll('.flip-card-inner');
   
   // функция, убирающая ховер при клике на карту
@@ -89,15 +88,16 @@ function rotateCard() {
 
     // функция получения рандомного положения карты с багом
     function getRandomCard() {
-      min = 1
-      max = document.querySelectorAll('.flip-card-inner').length;
+      let min = 1
+      let max = document.querySelectorAll('.flip-card-inner').length;
       return Math.floor(Math.random()*(max - min + min));
     }
 
     // функция замены одной карты на карту с багом
     function replaceCard() {
       let index = getRandomCard();
-      document.querySelectorAll('.CardGameOver')[index].src = 'img/card_with_BUG.svg';
+      let oldCard = document.querySelectorAll('.CardGameOver');
+      oldCard[index].src = 'img/card_with_BUG.svg';
       console.log(`Баг находится под картой № ${parseInt(index+1)}`);      
     }
     
