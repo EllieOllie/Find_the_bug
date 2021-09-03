@@ -26,6 +26,10 @@ body {
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.cards__img {
+  width: 36vw;
+}
+
 .text {
   margin-bottom: 5.6vh;
 }
@@ -203,7 +207,7 @@ a,
   .start-page {
     margin: auto;
     align-items: center;
-    transform: translateY(10vh);
+    transform: translateY(5vh);
   }
 
   .cards {
@@ -226,7 +230,8 @@ a,
     grid-row-gap: 33vw;
   }
 
-  img {
+  .CardFaceDown,
+  .CardGameOver {
     width: 20vw;
   }
 
@@ -248,7 +253,8 @@ a,
     grid-row-gap: 43vw;
   }
 
-  img {
+  .CardFaceDown,
+  .CardGameOver {
     width: 26vw;
   }
 
