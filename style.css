@@ -193,7 +193,7 @@ a,
 
 .CardFaceDown:hover {
   cursor: pointer;
-  animation: bounce 2s ease-out 1;
+  animation: bounce 2s ease-out infinite;
   box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.5);
 }
 
