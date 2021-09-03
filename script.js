@@ -8,7 +8,7 @@ const game = document.querySelector("#game-page");
 // Выбор уровня (выбираем, навешиваем класс active на выбранный уровень)
 levelList.addEventListener("click", function (event) {
   if (event.target.classList.contains("lvl__btn")) {
-    levelBtns.forEach(levelBtn => (levelBtn.classList.remove("active"))); // cнимает класс active, если выбран другой уровень
+    levelBtns.forEach((levelBtn) => levelBtn.classList.remove("active")); // cнимает класс active, если выбран другой уровень
     event.target.classList.add("active");
   }
 });
@@ -46,7 +46,7 @@ function dealCards(cards) {
 //функция получения выбранного уровня по атрибуту, определяющая необходимое число карт для игры
 function getSelectedLevel() {
   //сначала переводим в массив, затем filter находим выбранный уровень с классом active и получаем значение атрибута выбранного уровня
-  const lvl = Array.from(levelBtns).filter(item => item.classList.contains("active"))[0].dataset.level;
+  const lvl = Array.from(levelBtns).filter((item) => item.classList.contains("active"))[0].dataset.level;
   switch (lvl) {
     case "3":
       dealCards(3);
@@ -80,7 +80,7 @@ function rotateCard() {
   }
 
   // выбираем карту, навешиваем класс flip при клике на выбранную карту
-  flipCardInner.forEach(card => (card.addEventListener('click', () => {
+  flipCardInner.forEach((card) => card.addEventListener("click", () => {
     card.classList.toggle("flip");
 
       // функция получения рандомного положения карты с багом
@@ -100,7 +100,7 @@ function rotateCard() {
 
     removeHover();
     replaceCard();
- 
+
     // функция удаления игрового поля и добавления главного меню
     function hideGamePage() {
       body.removeChild(game);
@@ -108,8 +108,8 @@ function rotateCard() {
     }
 
     //перезагрузка при клике на любую карту после окончания игры
-    flipCardInner.forEach(card => card.addEventListener('click', hideGamePage));
-  })));
+    flipCardInner.forEach((card) => card.addEventListener("click", hideGamePage));
+  }));
 }
 
 // начало игры
@@ -117,6 +117,6 @@ const startGame = () => {
   getSelectedLevel();
   hideMenu();
   rotateCard();
-}
+};
 
 startBtn.addEventListener("click", startGame);
