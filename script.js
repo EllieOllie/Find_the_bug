@@ -30,7 +30,7 @@ function dealCards(cards) {
     frontFlip.classList.add("card__front-flip");
 
     let imgCardFaceDown = document.createElement("img");
-    frontFlip.appendChild(imgCardFaceDown).src = "img/card_face_down.png";
+    frontFlip.appendChild(imgCardFaceDown).src = "img/card_face_down.webp";
     imgCardFaceDown.classList.add("CardFaceDown");
 
     let backFlip = document.createElement("div");
@@ -38,7 +38,7 @@ function dealCards(cards) {
     backFlip.classList.add("card__back-flip");
 
     let imgCardGameOver = document.createElement("img");
-    backFlip.appendChild(imgCardGameOver).src = "img/card_Game_over.png";
+    backFlip.appendChild(imgCardGameOver).src = "img/card_Game_over.webp";
     imgCardGameOver.classList.add("CardGameOver");
   }
 }
@@ -94,7 +94,7 @@ function rotateCard() {
     function replaceCard() {
       let index = getRandomCard();
       let oldCard = document.querySelectorAll(".CardGameOver");
-      oldCard[index].src = "img/card_with_BUG.png";
+      oldCard[index].src = "img/card_with_BUG.webp";
       // console.log(`Баг находится под картой № ${parseInt(index+1)}`);      
     }    
 
