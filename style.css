@@ -168,7 +168,7 @@ a,
   25%,
   50%,
   75% {
-    transform: translateY(-10%);
+    transform: translateY(-8%);
   }
 
   0%,
@@ -178,12 +178,12 @@ a,
 
   20%,
   60% {
-    transform: rotate(-10deg);
+    transform: rotate(-8deg);
   }
 
   40%,
   80% {
-    transform: rotate(10deg);
+    transform: rotate(8deg);
   }
 }
 
