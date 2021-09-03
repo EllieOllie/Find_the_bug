@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body,
-.title,
-.description,
+.text__title,
+.text__description,
 .level {
   margin: 0;
 }
@@ -34,19 +34,19 @@ img.cards__img {
   margin-bottom: 5.6vh;
 }
 
-.title,
-.description,
+.text__title,
+.text__description,
 a,
 .button {
   color: #fff;
 }
 
-.title {
+.text__title {
   font: bold 5.56vh/4.5vh roboto, arial, sans-serif;
   padding-bottom: 1.5vh;
 }
 
-.description {
+.text__description {
   font: 1.91vh/3vh robotoregular, arial, sans-serif;
 }
 
