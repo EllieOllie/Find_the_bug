@@ -262,3 +262,48 @@ a,
     padding-top: 9%;
   }
 }
+
+@media (max-height: 375px) {
+  .start-page {
+    align-items: flex-end;
+    transform: translateY(18vh);
+  }
+
+  .cards {
+    margin: 0;
+    position: absolute;
+    top: 16vh;
+    right: 92vh;
+  }
+
+  .cards__img {
+    width: 35vw;
+  }
+
+  .level {
+    padding-inline-start: 17px;
+    padding-bottom: 6vw;
+  }
+
+  .button {
+    margin-right: 80px;
+  }
+
+  .game-page {
+    padding-top: 0;
+  }
+
+  .CardFaceDown, .CardGameOver {
+    width: 14vw;
+  }
+
+  .flip-card {
+    grid-template-columns: 17vw 17vw 17vw;
+    grid-row-gap: 24vw;
+  }
+
+  .flip-card.grid-cards10 {
+    grid-template-columns: 17vw 17vw 17vw 17vw 17vw;
+    grid-row-gap: 24vw;
+  }
+}
