@@ -238,13 +238,6 @@ a,
   .game-page {
     padding-top: 7%;
   }
-
-  /* стили для 10 карт для мобилки */
-
-  /* .flip-card.grid-cards10 {
-    grid-template-columns: 30vw 30vw;
-    grid-row-gap: 34vw;
-  } */
 }
 
 @media (max-width: 375px) {
