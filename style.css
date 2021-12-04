@@ -138,6 +138,7 @@ a,
 .flip-card-inner {
   text-align: center;
   transition: transform 0.5s;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -150,10 +151,12 @@ a,
 }
 
 .flip {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
 .card__back-flip {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
