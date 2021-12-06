@@ -84,7 +84,7 @@ function rotateCard() {
     card.classList.toggle("flip");
 
       // функция получения рандомного положения карты с багом
-      function getRandomCard() {
+    function getRandomCard() {
       let min = 1;
       let max = document.querySelectorAll(".flip-card-inner").length;
       return Math.floor(Math.random()*(max - min + min));
