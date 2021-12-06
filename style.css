@@ -169,31 +169,15 @@ a,
 }
 
 @keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0%);
-  }
+  0%, 100% { transform: translateY(0%); }
 
-  25%,
-  50%,
-  75% {
-    transform: translateY(-8%);
-  }
+  25%, 50%, 75% { transform: translateY(-8%); }
 
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
+  0%, 100% { transform: rotate(0deg); }
 
-  20%,
-  60% {
-    transform: rotate(-8deg);
-  }
+  20%, 60% { transform: rotate(-8deg); }
 
-  40%,
-  80% {
-    transform: rotate(8deg);
-  }
+  40%, 80% { transform: rotate(8deg); }
 }
 
 .CardFaceDown:hover {
@@ -291,7 +275,8 @@ a,
     padding-top: 0;
   }
 
-  .CardFaceDown, .CardGameOver {
+  .CardFaceDown, 
+  .CardGameOver {
     width: 14vw;
   }
 
